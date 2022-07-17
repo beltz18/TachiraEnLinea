@@ -1,0 +1,7 @@
+# client files
+/client/css/
+/client/img/
+/client/lib/
+/client/scss/
+
+# server files
