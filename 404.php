@@ -1,4 +1,5 @@
 <?php
+  $page = "404";
   require './server/controllers/__init__.php';
   require './client/partials/head.php';
 ?>

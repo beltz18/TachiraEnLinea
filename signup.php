@@ -1,4 +1,5 @@
 <?php
+  $page = "signup";
   require './server/controllers/__init__.php';
   require './client/partials/head.php';
 ?>

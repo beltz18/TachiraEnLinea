@@ -1,6 +1,4 @@
 <?php
-session_start();
-error_reporting();
 
 class Database {
   private $host;

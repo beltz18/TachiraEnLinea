@@ -1,6 +1,11 @@
 <?php
+  $page = "index";
   require './server/controllers/__init__.php';
   require './client/partials/head.php';
+
+  if (!isset($_SESSION['logged'])):
+    header("location: signin.php");
+  endif;
 ?>
 <body>
   <div class="container-xxl position-relative bg-white d-flex p-0">
@@ -16,7 +21,7 @@
     <div class="sidebar pe-4 pb-3">
       <nav class="navbar bg-light navbar-light">
         <a href="./index.php" class="navbar-brand mx-4 mb-3">
-          <h3 class="text-primary">TáchiraEnLínea</h3>
+          <h3 class="text-primary"><?php echo $title; ?></h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
           <div class="position-relative">
@@ -25,32 +30,23 @@
           </div>
           <div class="ms-3">
             <h6 class="mb-0">Jhon Doe</h6>
-            <span>Admin</span>
+            <span>Administrador</span>
           </div>
         </div>
         <div class="navbar-nav w-100">
           <a href="./index.php" class="nav-item nav-link active"><i class="fa fa-home me-2"></i>Inicio</a>
           <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-pencil-alt me-2"></i>Registro</a>
             <div class="dropdown-menu bg-transparent border-0">
-              <a href="button.php" class="dropdown-item">Buttons</a>
-              <a href="typography.php" class="dropdown-item">Typography</a>
-              <a href="element.php" class="dropdown-item">Other Elements</a>
+              <a href="#" class="dropdown-item">Buttons</a>
+              <a href="#" class="dropdown-item">Typography</a>
+              <a href="#" class="dropdown-item">Other Elements</a>
             </div>
           </div>
-          <a href="widget.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-          <a href="form.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-          <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-          <a href="chart.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-            <div class="dropdown-menu bg-transparent border-0">
-              <a href="signin.php" class="dropdown-item">Sign In</a>
-              <a href="signup.php" class="dropdown-item">Sign Up</a>
-              <a href="404.php" class="dropdown-item">404 Error</a>
-              <a href="blank.php" class="dropdown-item">Blank Page</a>
-            </div>
-          </div>
+          <a href="#" class="nav-item nav-link"><i class="fa fa-search me-2"></i>Consulta</a>
+          <a href="#" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Perfil</a>
+          <a href="#" class="nav-item nav-link"><i class="fa fa-cog me-2"></i>Configuración</a>
+          <a href="./server/controllers/logout.php" class="nav-item nav-link"><i class="fa fa-power-off me-2"></i>Cerrar sesión</a>
         </div>
       </nav>
     </div>
@@ -67,21 +63,21 @@
           <i class="fa fa-bars"></i>
         </a>
         <form class="d-none d-md-flex ms-4">
-          <input class="form-control border-0" type="search" placeholder="Search">
+          <input class="form-control border-0" type="search" placeholder="Buscar...">
         </form>
         <div class="navbar-nav align-items-center ms-auto">
           <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
               <i class="fa fa-envelope me-lg-2"></i>
-              <span class="d-none d-lg-inline-flex">Message</span>
+              <span class="d-none d-lg-inline-flex">Mensajes</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
               <a href="#" class="dropdown-item">
                 <div class="d-flex align-items-center">
                   <img class="rounded-circle" src="./client/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                   <div class="ms-2">
-                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                    <small>15 minutes ago</small>
+                    <h6 class="fw-normal mb-0">Jhon te envió un mensaje</h6>
+                    <small>Hace 15 minutos</small>
                   </div>
                 </div>
               </a>
@@ -90,8 +86,8 @@
                 <div class="d-flex align-items-center">
                   <img class="rounded-circle" src="./client/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                   <div class="ms-2">
-                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                    <small>15 minutes ago</small>
+                    <h6 class="fw-normal mb-0">Jhon te envió un mensaje</h6>
+                    <small>Hace 15 minutos</small>
                   </div>
                 </div>
               </a>
@@ -100,37 +96,37 @@
                 <div class="d-flex align-items-center">
                   <img class="rounded-circle" src="./client/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                   <div class="ms-2">
-                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                    <small>15 minutes ago</small>
+                    <h6 class="fw-normal mb-0">Jhon te envió un mensaje</h6>
+                    <small>Hace 15 minutos</small>
                   </div>
                 </div>
               </a>
               <hr class="dropdown-divider">
-              <a href="#" class="dropdown-item text-center">See all message</a>
+              <a href="#" class="dropdown-item text-center">Ver todos</a>
             </div>
           </div>
           <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
               <i class="fa fa-bell me-lg-2"></i>
-              <span class="d-none d-lg-inline-flex">Notificatin</span>
+              <span class="d-none d-lg-inline-flex">Notificaciones</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
               <a href="#" class="dropdown-item">
-                <h6 class="fw-normal mb-0">Profile updated</h6>
-                <small>15 minutes ago</small>
+                <h6 class="fw-normal mb-0">Perfil actualizado</h6>
+                <small>Hace 15 minutos</small>
               </a>
               <hr class="dropdown-divider">
               <a href="#" class="dropdown-item">
-                <h6 class="fw-normal mb-0">New user added</h6>
-                <small>15 minutes ago</small>
+                <h6 class="fw-normal mb-0">Nuevo usuario agregado</h6>
+                <small>Hace 15 minutos</small>
               </a>
               <hr class="dropdown-divider">
               <a href="#" class="dropdown-item">
-                <h6 class="fw-normal mb-0">Password changed</h6>
-                <small>15 minutes ago</small>
+                <h6 class="fw-normal mb-0">Contraseña cambiada</h6>
+                <small>Hace 15 minutos</small>
               </a>
               <hr class="dropdown-divider">
-              <a href="#" class="dropdown-item text-center">See all notifications</a>
+              <a href="#" class="dropdown-item text-center">Ver todas</a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -139,9 +135,9 @@
               <span class="d-none d-lg-inline-flex">John Doe</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-              <a href="#" class="dropdown-item">My Profile</a>
-              <a href="#" class="dropdown-item">Settings</a>
-              <a href="./signin.php" class="dropdown-item">Log Out</a>
+              <a href="#" class="dropdown-item">Mi perfil</a>
+              <a href="#" class="dropdown-item">Configuración</a>
+              <a href="./server/controllers/logout.php" class="dropdown-item">Cerrar sesión</a>
             </div>
           </div>
         </div>
@@ -155,8 +151,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
               <i class="fa fa-chart-line fa-3x text-primary"></i>
               <div class="ms-3">
-                <p class="mb-2">Today Sale</p>
-                <h6 class="mb-0">$1234</h6>
+                <p class="mb-2">Venta diaria</p>
+                <h6 class="mb-0">$1500.00</h6>
               </div>
             </div>
           </div>
@@ -164,8 +160,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
               <i class="fa fa-chart-bar fa-3x text-primary"></i>
               <div class="ms-3">
-                <p class="mb-2">Total Sale</p>
-                <h6 class="mb-0">$1234</h6>
+                <p class="mb-2">Venta semanal</p>
+                <h6 class="mb-0">$1500.00</h6>
               </div>
             </div>
           </div>
@@ -173,8 +169,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
               <i class="fa fa-chart-area fa-3x text-primary"></i>
               <div class="ms-3">
-                <p class="mb-2">Today Revenue</p>
-                <h6 class="mb-0">$1234</h6>
+                <p class="mb-2">Ganancias hoy</p>
+                <h6 class="mb-0">$1500.00</h6>
               </div>
             </div>
           </div>
@@ -182,8 +178,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
               <i class="fa fa-chart-pie fa-3x text-primary"></i>
               <div class="ms-3">
-                <p class="mb-2">Total Revenue</p>
-                <h6 class="mb-0">$1234</h6>
+                <p class="mb-2">Ganancias totales</p>
+                <h6 class="mb-0">$1500.00</h6>
               </div>
             </div>
           </div>
@@ -197,8 +193,8 @@
           <div class="col-sm-12 col-xl-6">
             <div class="bg-light text-center rounded p-4">
               <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Worldwide Sales</h6>
-                <a href="">Show All</a>
+                <h6 class="mb-0">Ventas</h6>
+                <a href="">Mostrar todo</a>
               </div>
               <canvas id="worldwide-sales"></canvas>
             </div>
@@ -206,8 +202,8 @@
           <div class="col-sm-12 col-xl-6">
             <div class="bg-light text-center rounded p-4">
               <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Salse & Revenue</h6>
-                <a href="">Show All</a>
+                <h6 class="mb-0">Inversión y Ganancias</h6>
+                <a href="">Mostrar todo</a>
               </div>
               <canvas id="salse-revenue"></canvas>
             </div>
@@ -220,20 +216,20 @@
       <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
           <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Recent Salse</h6>
-            <a href="">Show All</a>
+            <h6 class="mb-0">Inversión Reciente</h6>
+            <a href="">Mostrar todo</a>
           </div>
           <div class="table-responsive">
             <table class="table text-start align-middle table-bordered table-hover mb-0">
               <thead>
                 <tr class="text-dark">
                   <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Invoice</th>
-                  <th scope="col">Customer</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Vendedor</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acción</th>
                 </tr>
               </thead>
               <tbody>
@@ -243,8 +239,8 @@
                   <td>INV-0123</td>
                   <td>Jhon Doe</td>
                   <td>$123</td>
-                  <td>Paid</td>
-                  <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  <td>Pagado</td>
+                  <td><a class="btn btn-sm btn-primary" href="">Detalles</a></td>
                 </tr>
                 <tr>
                   <td><input class="form-check-input" type="checkbox"></td>
@@ -252,8 +248,8 @@
                   <td>INV-0123</td>
                   <td>Jhon Doe</td>
                   <td>$123</td>
-                  <td>Paid</td>
-                  <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  <td>Pagado</td>
+                  <td><a class="btn btn-sm btn-primary" href="">Detalles</a></td>
                 </tr>
                 <tr>
                   <td><input class="form-check-input" type="checkbox"></td>
@@ -261,8 +257,8 @@
                   <td>INV-0123</td>
                   <td>Jhon Doe</td>
                   <td>$123</td>
-                  <td>Paid</td>
-                  <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  <td>Pagado</td>
+                  <td><a class="btn btn-sm btn-primary" href="">Detalles</a></td>
                 </tr>
                 <tr>
                   <td><input class="form-check-input" type="checkbox"></td>
@@ -270,8 +266,8 @@
                   <td>INV-0123</td>
                   <td>Jhon Doe</td>
                   <td>$123</td>
-                  <td>Paid</td>
-                  <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  <td>Pagado</td>
+                  <td><a class="btn btn-sm btn-primary" href="">Detalles</a></td>
                 </tr>
                 <tr>
                   <td><input class="form-check-input" type="checkbox"></td>
@@ -279,8 +275,8 @@
                   <td>INV-0123</td>
                   <td>Jhon Doe</td>
                   <td>$123</td>
-                  <td>Paid</td>
-                  <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  <td>Pagado</td>
+                  <td><a class="btn btn-sm btn-primary" href="">Detalles</a></td>
                 </tr>
               </tbody>
             </table>
@@ -295,7 +291,7 @@
           <div class="col-sm-12 col-md-6 col-xl-4">
             <div class="h-100 bg-light rounded p-4">
               <div class="d-flex align-items-center justify-content-between mb-2">
-                <h6 class="mb-0">Messages</h6>
+                <h6 class="mb-0">Mensajes</h6>
                 <a href="">Show All</a>
               </div>
               <div class="d-flex align-items-center border-bottom py-3">

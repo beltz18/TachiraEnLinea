@@ -1,4 +1,14 @@
 <?php
+session_start();
+error_reporting();
+
+if(isset($_SESSION['logged']) && $page != "index"):
+  header("location: index.php");
+endif;
+
+$name  = "Táchira en línea";
+$title = "TáchiraEnLínea";
+
 require './server/models/database.php';
 require './server/models/user.php';
 
