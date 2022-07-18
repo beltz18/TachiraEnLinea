@@ -12,4 +12,14 @@ class Database {
     $this->pass = "";
     $this->dtbs = "tachira_en_linea";
   }
+
+  public function connect() {
+    $conection = new mysqli($this->host,$this->user,$this->pass,$this->dtbs);
+    if($conection->connect_errno):
+      echo "<script>
+              alert('Hay problemas para conectarse a la base de datos')
+            </script>";
+    endif;
+    return $conection;
+  }
 }

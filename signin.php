@@ -24,11 +24,11 @@
             <br>
             <form action="" method="post">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Correo" required>
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Correo" required>
                 <label for="floatingInput">Correo</label>
               </div>
               <div class="form-floating mb-4">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="**********" required>
+                <input type="password" class="form-control" id="floatingPassword" name="pass" placeholder="**********" required>
                 <label for="floatingPassword">Contraseña</label>
               </div>
               <div class="d-flex align-items-center justify-content-between mb-4">
@@ -38,8 +38,9 @@
                 </div>
                 <a href="#">Olvidé mi contraseña</a>
               </div>
-              <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar sesión</button>
+              <button type="submit" name="btn-log" class="btn btn-primary py-3 w-100 mb-4">Iniciar sesión</button>
             </form>
+            <?php require './server/controllers/login.php'; ?>
             <p class="text-center mb-0">No tengo cuenta <a href="./signup.php">Registrarme</a></p>
           </div>
         </div>

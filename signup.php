@@ -40,7 +40,7 @@
                 <label for="floatingPassword">Contraseña</label>
               </div>
               <br>
-              <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrar</button>
+              <button type="submit" name="btn-reg" class="btn btn-primary py-3 w-100 mb-4">Registrar</button>
             </form>
             <?php require './server/controllers/registro.php'; ?>
             <p class="text-center mb-0">Ya tengo una cuenta <a href="./signin.php">Iniciar sesión</a></p>
