@@ -10,6 +10,10 @@
     }, 1)
   }
   spinner()
+
+  $('#floatingInputCedula').on('focus', () => {
+    document.querySelector('#floatingInputCedula').setAttribute("value", "V-")
+  })
   
   // Back to top button
   $(window).scroll(function () {

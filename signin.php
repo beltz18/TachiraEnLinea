@@ -40,7 +40,7 @@
               </div>
               <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar sesión</button>
             </form>
-            <p class="text-center mb-0">No tengo cuenta <a href="./signup.html">Registrarme</a></p>
+            <p class="text-center mb-0">No tengo cuenta <a href="./signup.php">Registrarme</a></p>
           </div>
         </div>
       </div>

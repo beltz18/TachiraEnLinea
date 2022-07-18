@@ -24,21 +24,26 @@
             <br>
             <form action="" method="post">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingText" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="floatingText" placeholder="Nombre" name="nom_usr" required>
                 <label for="floatingText">Nombre completo</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="correo@correo.com" required>
+                <input type="text" class="form-control" id="floatingInputCedula" placeholder="Cédula" name="ced_usr" pattern="[0-9VEP-]{8,15}" required>
+                <label for="floatingInputCedula">Número de cédula</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="correo@correo.com" name="ema_usr" required>
                 <label for="floatingInput">Correo electrónico</label>
               </div>
               <div class="form-floating mb-4">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="**********" required>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="**********" name="psw_usr" required>
                 <label for="floatingPassword">Contraseña</label>
               </div>
               <br>
               <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrar</button>
             </form>
-            <p class="text-center mb-0">Ya tengo una cuenta <a href="./signin.html">Iniciar sesión</a></p>
+            <?php require './server/controllers/registro.php'; ?>
+            <p class="text-center mb-0">Ya tengo una cuenta <a href="./signin.php">Iniciar sesión</a></p>
           </div>
         </div>
       </div>
