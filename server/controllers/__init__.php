@@ -2,7 +2,7 @@
 session_start();
 error_reporting();
 
-if(isset($_SESSION['logged']) && $page != "index"):
+if(isset($_SESSION['logged']) && $page != "index" && $page != "404"):
   header("location: index.php");
 endif;
 

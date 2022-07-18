@@ -19,9 +19,11 @@ class User extends Database {
   public function login($email,$pass) {
     $con = parent::connect();
     $sql = "SELECT * FROM usuario WHERE ema_usr = '$email' AND psw_usr = '$pass';";
-    if($con->query($sql)) {
+    $a = $con->query($sql);
+    if($res = $a->fetch_assoc()) {
       $_SESSION['logged'] = TRUE;
-      $_SESSION['email']   = $email;
+      $_SESSION['email']  = $email;
+      $_SESSION['name']   = $res['nom_usr'];
       header("location: index.php");
     }else{
       echo "<script>alert('El usuario o contraseña son incorrectos')</script>";

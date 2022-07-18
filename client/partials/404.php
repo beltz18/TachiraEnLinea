@@ -7,7 +7,7 @@
       <p class="mb-4">
         Al parecer, la página que intenta buscar no existe en nuestra web,
         puede que haya sido eliminada o se haya cambiado de dirección.
-        <br><br>
+        <br>
         lamentamos los inconvenientes, intenta con otro parametro de busqueda
       </p>
       <a class="btn btn-primary rounded-pill py-3 px-5" href="index.php">Ir al inicio</a>
